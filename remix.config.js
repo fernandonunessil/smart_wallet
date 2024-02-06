@@ -1,8 +1,13 @@
-/** @type {import('@remix-run/dev').AppConfig} */
-export default {
-  ignoredRouteFiles: ["**/.*"],
-  // appDirectory: "app",
-  // assetsBuildDirectory: "public/build",
-  // publicPath: "/build/",
-  // serverBuildPath: "build/index.js",
-};
+const { flatRoutes } = require('remix-flat-routes')
+
+/**
+ * @type {import("@remix-run/dev").AppConfig}
+ */
+module.exports = {
+  // ignore all files in routes folder to prevent
+  // default remix convention from picking up routes
+  ignoredRouteFiles: ['**/*'],
+  routes: async defineRoutes => {
+    return flatRoutes('routes', defineRoutes)
+  },
+}
