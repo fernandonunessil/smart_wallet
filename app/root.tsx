@@ -10,15 +10,17 @@ import {
 } from "@remix-run/react";
 
 import style from "./tailwind.css";
+import icons from 'remixicon/fonts/remixicon.css'
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
-  { rel: "stylesheet", href: style }
+  { rel: "stylesheet", href: style },
+  {rel: "stylesheet", href: icons}
 ];
 
 export default function App() {
   return (
-    <html lang="en">
+    <html lang="pt-br">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
