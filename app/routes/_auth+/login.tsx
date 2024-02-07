@@ -1,43 +1,23 @@
 import React from "react";
+import Form from "~/components/LoginForm/Form";
 
 export default function login() {
   return (
-    <div className="w-full h-screen bg-zinc-800 flex justify-center items-center">
-      <div className="w-1/3 min-h-80 border-white border-2 bg-white bg-opacity-20  rounded-lg shadow-lg shadow-zinc-600">
-        <form className="text-center p-4 ">
-          <h1 className="text-3xl text-white">Personal Wallet</h1>
-          <div className="p-2">
-            <label
-              className="block text-sm font-medium text-white text-left"
-              htmlFor="email"
-            >
-              Email
-            </label>
-            <input
-              type="text"
-              id="email"
-              name="email"
-              className="w-full p-1 px-2 outline-none rounded-t border-0 bg-black bg-opacity-15 border-b text-white"
-            />
-          </div>
-          <div className="p-2">
-            <label
-              className="block text-sm font-medium text-white text-left"
-              htmlFor="password"
-            >
-              Senha
-            </label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              className="w-full p-1 px-2 outline-none rounded-t border-0 bg-black bg-opacity-15 border-b text-white"
-            />
-          </div>
-          <div className="p-3">
-            <button className="p-2 bg-green-700 w-full text-white rounded">Entrar</button>
-          </div>
-        </form>
+    <div className="w-full h-screen bg-zinc-800 flex justify-between items-center gap-3 px-6 text-white">
+      <div className="w-1/2">
+        <h2 className="text-3xl p-2 font-semibold">Sua Carteira Pessoal</h2>
+        <p className="p-3 text-justify">
+          {" "}
+          Em um mundo cada vez mais conectado, a gestão financeira pessoal
+          tornou-se uma habilidade crucial. Pensando nisso, apresentamos o
+          "Finanças em Foco", um aplicativo inovador projetado para simplificar
+          e potencializar sua jornada rumo ao sucesso financeiro.
+        </p>
+      </div>
+      <div className="w-1/2">
+        <div className="w-1/2 mx-auto">
+          <Form />
+        </div>
       </div>
     </div>
   );
