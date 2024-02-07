@@ -1,38 +1,9 @@
-# Welcome to Remix!
+# Personal Wallet
 
-- [Remix Docs](https://remix.run/docs)
+Em um mundo cada vez mais conectado, a gestão financeira pessoal tornou-se uma habilidade crucial. Pensando nisso, apresentamos o "Finanças em Foco", um aplicativo inovador projetado para simplificar e potencializar sua jornada rumo ao sucesso financeiro.
 
-## Development
+#### Page Images
 
-From your terminal:
+###### Login Page
 
-```sh
-npm run dev
-```
-
-This starts your app in development mode, rebuilding assets on file changes.
-
-## Deployment
-
-First, build your app for production:
-
-```sh
-npm run build
-```
-
-Then run the app in production mode:
-
-```sh
-npm start
-```
-
-Now you'll need to pick a host to deploy it to.
-
-### DIY
-
-If you're familiar with deploying node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `remix build`
-
-- `build/`
-- `public/build/`
+![This is an alt text.](./public/readme/login_page.png "This is a sample image.")
