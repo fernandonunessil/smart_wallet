@@ -3,7 +3,7 @@ import { CardProps } from "types/Components/Card/type";
 
 export default function Card({ title, value, icon }: CardProps) {
   return (
-    <div className="w-full border-zinc-300 border text-center shadow-2xl rounded-lg
+    <div className="w-full border-zinc-300 border text-center rounded-lg
      p-4">
       <div className="p-6">
         <i className={`${icon} text-3xl`}></i>
