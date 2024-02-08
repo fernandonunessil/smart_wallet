@@ -29,7 +29,7 @@ export default function SideBar() {
   const [selectPath, setSelectPath] = React.useState("/dashboard");
   return (
     <div className="w-1/6 h-screen shadow-md shadow-zinc-400 select-none">
-      <div className="bg-sky-900 relative w-full ">
+      <div className="bg-zinc-800 relative w-full ">
         <div className="text-center p-2 text-white">
           <h2>Username</h2>
         </div>
@@ -47,9 +47,9 @@ export default function SideBar() {
           {SideBarItems.map((row, i) => (
             <li
               key={i}
-              className={`hover:bg-blue-200 hover:shadow-xl bg-opacity-50 text-center p-2 cursor-pointer duration-300 ease-in-out rounded ${
+              className={`hover:bg-zinc-200 hover:shadow-xl bg-opacity-50 text-center p-2 cursor-pointer duration-100 ease-in-out rounded ${
                 selectPath === row.path
-                  ? "border-l-4 border-blue-700 bg-gradient-to-r  from-blue-200 to-white shadow-xl"
+                  ? "border-l-4 border-zinc-700 bg-gradient-to-r  from-zinc-300 to-white shadow-xl"
                   : ""
               }`}
               onClick={() => setSelectPath(row.path)}
