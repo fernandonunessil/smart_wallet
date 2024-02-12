@@ -1,4 +1,4 @@
-const { flatRoutes } = require('remix-flat-routes')
+const { flatRoutes } = require("remix-flat-routes");
 
 /**
  * @type {import("@remix-run/dev").AppConfig}
@@ -6,8 +6,9 @@ const { flatRoutes } = require('remix-flat-routes')
 module.exports = {
   // ignore all files in routes folder to prevent
   // default remix convention from picking up routes
-  ignoredRouteFiles: ['**/*'],
-  routes: async defineRoutes => {
-    return flatRoutes('routes', defineRoutes)
+  ignoredRouteFiles: ["**/*"],
+  routes: async (defineRoutes) => {
+    return flatRoutes("routes", defineRoutes);
   },
-}
+  transpilePackages: ["@mui/x-charts"]
+};

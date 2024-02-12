@@ -11,16 +11,17 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@mui/material": "^5.15.9",
-    "@mui/system": "^5.15.9",
-    "@mui/x-charts": "^6.19.3",
+    "@faker-js/faker": "^8.4.1",
     "@remix-run/css-bundle": "^2.6.0",
     "@remix-run/node": "^2.6.0",
     "@remix-run/react": "^2.6.0",
     "@remix-run/serve": "^2.6.0",
+    "chart.js": "^4.4.1",
     "isbot": "^4.1.0",
     "react": "^18.2.0",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
+    "remix-utils": "^7.5.0",
     "remixicon": "^4.1.0"
   },
   "devDependencies": {

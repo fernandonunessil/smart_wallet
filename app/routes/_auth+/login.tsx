@@ -19,7 +19,7 @@ export default function login() {
         </p>
       </div>
       <div className="w-1/2">
-        <div className="w-1/2 mx-auto">
+        <div className="w-5/6 mx-auto">
           <Form />
         </div>
       </div>

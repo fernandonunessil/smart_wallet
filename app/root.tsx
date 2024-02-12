@@ -10,12 +10,12 @@ import {
 } from "@remix-run/react";
 
 import style from "./tailwind.css";
-import icons from 'remixicon/fonts/remixicon.css'
+import icons from "remixicon/fonts/remixicon.css";
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
   { rel: "stylesheet", href: style },
-  {rel: "stylesheet", href: icons}
+  { rel: "stylesheet", href: icons }
 ];
 
 export default function App() {
