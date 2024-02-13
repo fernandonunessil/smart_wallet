@@ -1,88 +1,57 @@
-import { json, V2_MetaFunction } from "@remix-run/node";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-} from "chart.js/auto";
-import { Line } from "react-chartjs-2";
-import { faker } from "@faker-js/faker";
-import { ClientOnly } from "remix-utils";
-import { useLoaderData } from "@remix-run/react/dist/components";
+import { useEffect, useRef } from "react";
+import Chart from "chart.js/auto";
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-);
+export default function MyChartComponent({ data }) {
+  const chartRef = useRef(null);
+  const chartInstance = useRef(null); // Ref to hold the chart instance
 
-export const meta: V2_MetaFunction = () => {
-  return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" }
-  ];
-};
+  useEffect(() => {
+    if (!chartRef.current) return;
 
-export async function loader() {
-  const labels = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July"
-  ];
-  const options = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: "top" as const
-      },
-      title: {
-        display: true,
-        text: "Chart.js Line Chart"
-      }
+    // Destroy the existing chart instance before creating a new one
+    if (chartInstance.current) {
+      chartInstance.current.destroy();
     }
-  };
 
-  const data = {
-    labels,
-    datasets: [
-      {
-        label: "Dataset 1",
-        data: labels.map(() => faker.number.int({ min: -1000, max: 1000 })),
-        borderColor: "rgb(255, 99, 132)",
-        backgroundColor: "rgba(255, 99, 132, 0.5)"
+    const ctx = chartRef.current.getContext("2d");
+    chartInstance.current = new Chart(ctx, {
+      // Configure your chart here
+      type: "bar",
+      data: {
+        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        datasets: [
+          {
+            label: "# of Votes",
+            data: data, // Your data array
+            backgroundColor: [
+              "rgba(255,   99,   132,   0.2)",
+              "rgba(54,   162,   235,   0.2)",
+              "rgba(255,   206,   86,   0.2)",
+              "rgba(75,   192,   192,   0.2)",
+              "rgba(153,   102,   255,   0.2)",
+              "rgba(255,   159,   64,   0.2)"
+            ],
+            borderColor: [
+              "rgba(255,   99,   132,   1)",
+              "rgba(54,   162,   235,   1)",
+              "rgba(255,   206,   86,   1)",
+              "rgba(75,   192,   192,   1)",
+              "rgba(153,   102,   255,   1)",
+              "rgba(255,   159,   64,   1)"
+            ],
+            borderWidth: 1
+          }
+        ]
       },
-      {
-        label: "Dataset 2",
-        data: labels.map(() => faker.number.int({ min: -1000, max: 1000 })),
-        borderColor: "rgb(53, 162, 235)",
-        backgroundColor: "rgba(53, 162, 235, 0.5)"
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
       }
-    ]
-  };
-  return json({ options, data });
-}
+    });
+  }, [data]);
 
-export default function Index() {
-  const { options, data } = useLoaderData<typeof loader>();
-  return (
-    <ClientOnly fallback={<Fallback />}>
-      {() => <Line options={options} data={data} />}
-    </ClientOnly>
-  );
-}
-
-function Fallback() {
-  return <div>Generating Chart</div>;
+  return <canvas ref={chartRef} />;
 }

@@ -11,8 +11,8 @@ export default function index() {
         <Card title="Entradas" value={1800} icon="ri-wallet-3-line" />
         <Card title="Saidas" value={-732.32} icon="ri-wallet-3-line" />
       </div>
-      <div>
-        <Chart />
+      <div className="p-8">
+        <Chart data={[12, 19, 3, 5, 2, 3]} />
       </div>
     </div>
   );

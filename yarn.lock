@@ -4978,10 +4978,10 @@ remix-flat-routes@^0.6.4:
     fs-extra "^11.1.1"
     minimatch "^5.1.0"
 
-remix-utils@^7.5.0:
-  version "7.5.0"
-  resolved "https://registry.yarnpkg.com/remix-utils/-/remix-utils-7.5.0.tgz#0121585167957b194ec8bcae08e8902eacd0564a"
-  integrity sha512-vzjDhbdwK+3XxqL2LM7ZPzq0zyjb+77eAWbKhDqhnh0nlA11n3CmTtYzrZYpVf6h24+6m5mD6KnRfcdD3Zrl7w==
+remix-utils@7.0.1:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/remix-utils/-/remix-utils-7.0.1.tgz#421aad1ac903907ec977a05560c537b9af25ffd1"
+  integrity sha512-jx/p+6SSoMQpVElNPMo9tsIcjDCOooVBPOKhVx9SFTFXxLztxC/1RPoC6Ntzk8//60hYVrtvfyosBrhZNXlUpg==
   dependencies:
     type-fest "^4.3.3"
 
