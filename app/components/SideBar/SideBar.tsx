@@ -28,7 +28,7 @@ const SideBarItems = [
 export default function SideBar() {
   const [selectPath, setSelectPath] = React.useState("/dashboard");
   return (
-    <div className="w-1/6 h-screen shadow-md shadow-zinc-400 select-none">
+    <div className="w-[14%] h-screen shadow-md shadow-zinc-400 select-none fixed bg-white">
       <div className="bg-zinc-800 relative w-full ">
         <div className="text-center p-2 text-white">
           <h2>Username</h2>

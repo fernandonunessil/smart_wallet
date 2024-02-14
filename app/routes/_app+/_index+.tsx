@@ -7,6 +7,7 @@ export default function index() {
   const [selectPath, setSelectPath] = React.useState("/dashboard");
   return (
     <div className="w-full flex">
+      <div className="w-1/6 h-screen "></div>
       <SideBar />
 
       <Outlet />
