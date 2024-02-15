@@ -1,57 +1,65 @@
-import { useEffect, useRef } from "react";
-import Chart from "chart.js/auto";
+import React from "react";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+} from "chart.js";
+import { faker } from "@faker-js/faker";
 
-export default function MyChartComponent({ data }) {
-  const chartRef = useRef(null);
-  const chartInstance = useRef(null); // Ref to hold the chart instance
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
-  useEffect(() => {
-    if (!chartRef.current) return;
-
-    // Destroy the existing chart instance before creating a new one
-    if (chartInstance.current) {
-      chartInstance.current.destroy();
+export const options = {
+  responsive: true,
+  plugins: {
+    legend: {
+      position: "top" as const
+    },
+    title: {
+      display: true,
+      text: "Chart.js Bar Chart"
     }
+  }
+};
 
-    const ctx = chartRef.current.getContext("2d");
-    chartInstance.current = new Chart(ctx, {
-      // Configure your chart here
-      type: "bar",
-      data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-        datasets: [
-          {
-            label: "# of Votes",
-            data: data, // Your data array
-            backgroundColor: [
-              "rgba(255,   99,   132,   0.2)",
-              "rgba(54,   162,   235,   0.2)",
-              "rgba(255,   206,   86,   0.2)",
-              "rgba(75,   192,   192,   0.2)",
-              "rgba(153,   102,   255,   0.2)",
-              "rgba(255,   159,   64,   0.2)"
-            ],
-            borderColor: [
-              "rgba(255,   99,   132,   1)",
-              "rgba(54,   162,   235,   1)",
-              "rgba(255,   206,   86,   1)",
-              "rgba(75,   192,   192,   1)",
-              "rgba(153,   102,   255,   1)",
-              "rgba(255,   159,   64,   1)"
-            ],
-            borderWidth: 1
-          }
-        ]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
-    });
-  }, [data]);
+const labels = [
+  "Janeiro",
+  "Fevereiro",
+  "Março",
+  "Abril",
+  "Maio",
+  "Junho",
+  "Julho",
+  "Agosto",
+  "Setembro",
+  "Outubro",
+  "Novembro",
+  "Dezembro"
+];
 
-  return <canvas ref={chartRef} />;
-}
+export const data = {
+  labels,
+  datasets: [
+    {
+      label: "Saida",
+
+      data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+      backgroundColor: "rgba(255, 99, 132, 0.5)"
+    },
+    {
+      label: "Entradas",
+      data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+      backgroundColor: "rgba(111, 235, 53, 0.5)"
+    }
+  ]
+};
