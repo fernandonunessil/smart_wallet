@@ -52,11 +52,7 @@ export default function SideBar() {
           {SideBarItems.map((row, i) => (
             <li
               key={i}
-              className={`hover:bg-zinc-200 hover:shadow-xl bg-opacity-50 text-center p-2 cursor-pointer duration-100 ease-in-out rounded ${
-                selectPath === row.path
-                  ? "border-l-4 border-zinc-700 bg-gradient-to-r  from-zinc-300 to-white shadow-xl"
-                  : ""
-              }`}
+              className={`hover:bg-zinc-200 hover:shadow-xl hover:border-l-4 border-zinc-600  bg-opacity-50 text-center p-2 cursor-pointer duration-100 ease-in-out rounded `}
               onClick={() => setSelectPath(row.path)}
             >
               <NavLink
