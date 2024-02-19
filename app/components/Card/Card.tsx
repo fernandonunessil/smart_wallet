@@ -2,7 +2,6 @@ import React from "react";
 import { CardProps } from "types/Components/Card/type";
 
 export default function Card({ title, value, icon }: CardProps) {
-  console.log(Number(value));
 
   return (
     <div
