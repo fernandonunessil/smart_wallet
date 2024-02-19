@@ -1,6 +1,6 @@
 import React from "react";
 import user_ico from "../../../public/user_ico.png";
-import { NavLink, Outlet } from "@remix-run/react";
+import { NavLink, Outlet, useLocation } from "@remix-run/react";
 
 const SideBarItems = [
   {
@@ -26,7 +26,12 @@ const SideBarItems = [
 ];
 
 export default function SideBar() {
-  const [selectPath, setSelectPath] = React.useState("/dashboard");
+  const location = useLocation();
+  const currentLocation = location.pathname;
+
+  console.log(currentLocation);
+
+  const [selectPath, setSelectPath] = React.useState(currentLocation);
   return (
     <div className="w-[14%] h-screen shadow-md shadow-zinc-400 select-none fixed bg-white">
       <div className="bg-zinc-800 relative w-full ">

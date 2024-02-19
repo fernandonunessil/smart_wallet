@@ -2,6 +2,8 @@ import React from "react";
 import { CardProps } from "types/Components/Card/type";
 
 export default function Card({ title, value, icon }: CardProps) {
+  console.log(Number(value));
+
   return (
     <div
       className="w-full border-zinc-300 border text-center rounded-lg
@@ -15,7 +17,10 @@ export default function Card({ title, value, icon }: CardProps) {
             Number(value) < 0 ? "text-red-600" : "text-green-600"
           }`}
         >
-          {value}
+          {new Intl.NumberFormat("de-DE", {
+            style: "currency",
+            currency: "BRL"
+          }).format(value)}
         </p>
       </div>
     </div>
