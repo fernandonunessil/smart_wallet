@@ -1,6 +1,6 @@
 import React from "react";
 import user_ico from "../../../public/user_ico.png";
-import { NavLink, Outlet, useLocation } from "@remix-run/react";
+import { NavLink, useLocation } from "@remix-run/react";
 
 const SideBarItems = [
   {
@@ -26,12 +26,6 @@ const SideBarItems = [
 ];
 
 export default function SideBar() {
-  const location = useLocation();
-  const currentLocation = location.pathname;
-
-  console.log(currentLocation);
-
-  const [selectPath, setSelectPath] = React.useState(currentLocation);
   return (
     <div className="w-[14%] h-screen shadow-md shadow-zinc-400 select-none fixed bg-white">
       <div className="bg-zinc-800 relative w-full ">
@@ -53,7 +47,6 @@ export default function SideBar() {
             <li
               key={i}
               className={`hover:bg-zinc-200 hover:shadow-xl hover:border-l-4 border-zinc-600  bg-opacity-50 text-center p-2 cursor-pointer duration-100 ease-in-out rounded `}
-              onClick={() => setSelectPath(row.path)}
             >
               <NavLink
                 to={row.path}
